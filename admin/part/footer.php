@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2025 <a href="../../" style="text-decoration:none">SIPAGAR</a>.</strong> All rights
+    <strong>Copyright &copy; 2025 <a href="../../" style="text-decoration:none">SIPAKAR</a>.</strong> All rights
     reserved.
 </footer>
 <script src="../../assets/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
