@@ -85,14 +85,16 @@ while ($row = mysqli_fetch_array($qCek)) {
                               if ($rows['jabatan'] == $selectedPejabat) {
                                 ?>
                                 <option value="<?php echo $rows['id_pejabat_desa']; ?>" selected="selected">
-                                  <?php echo $rows['jabatan']; ?></option>
+                                  <?php echo $rows['jabatan']; ?>
+                                </option>
                                 <?php
                               } else {
                                 ?>
                                 <option value="<?php echo $rows['id_pejabat_desa']; ?>">
-                                  <?php echo $rows['jabatan'], " (", $rows['nama_pejabat_desa'], ")"; ?></option>
+                                  <?php echo $rows['jabatan'], " (", $rows['nama_pejabat_desa'], ")"; ?>
+                                </option>
 
-                              <?php
+                                <?php
                               }
                             }
                             ?>

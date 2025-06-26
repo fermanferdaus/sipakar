@@ -53,7 +53,7 @@
 		<div class="col-md-6 col-lg-5">
 			<div class="card p-4">
 				<div class="card-header text-center">
-					<h3 class="text-info">Login SIPAGAR</h3>
+					<h3 class="text-info">Login SIPAKAR</h3>
 				</div>
 				<div class="card-body">
 					<form method="POST" action="aksi-login.php">
@@ -80,7 +80,7 @@
 				</div>
 				<div class="card-footer text-center">
 					<small class="text-muted d-block">
-						&copy; 2025 <a href="../" class="text-info font-weight-bold text-decoration-none">SIPAGAR</a><br>All rights reserved.
+						&copy; 2025 <a href="../" class="text-info font-weight-bold text-decoration-none">SIPAKAR</a><br>All rights reserved.
 					</small>
 				</div>
 			</div>
