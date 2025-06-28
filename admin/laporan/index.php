@@ -29,9 +29,18 @@ include('../part/header.php');
         </a>
       </li>
       <li>
+        <a href="../pengumuman"><i class="fa fa-info-circle"></i> <span>Kelola Informasi</span></a>
+      </li>
+      <li>
         <a href="../penduduk/">
           <i class="fa fa-users"></i> <span>Data Penduduk</span>
         </a>
+      </li>
+      <li>
+        <a href="../perangkat_desa/"><i class="fa fa-user-tie"></i> <span>Perangkat Desa</span></a>
+      </li>
+      <li>
+        <a href="../profil_desa/"><i class="fa fa-cogs"></i> <span>Kelola Profil Desa</span></a>
       </li>
       <?php
       if (isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')) {
@@ -50,6 +59,10 @@ include('../part/header.php');
             <li>
               <a href="../surat/surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai</a>
             </li>
+            <li class="">
+              <a href="../surat/surat_ditolak/"><i class="fa fa-circle-notch"></i> Surat Ditolak
+              </a>
+            </li>
           </ul>
         </li>
         <?php
@@ -59,6 +72,12 @@ include('../part/header.php');
       ?>
       <li class="active">
         <a href="#"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span></a>
+      </li>
+      <li class="header">Other</li>
+      <li>
+        <a href="../../login/logout.php">
+          <i class="fas fa-sign-out-alt"></i> <span>&nbsp;&nbsp;Logout</span>
+        </a>
       </li>
     </ul>
   </section>

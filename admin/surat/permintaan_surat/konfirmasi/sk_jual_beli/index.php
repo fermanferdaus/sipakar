@@ -20,9 +20,18 @@ while ($row = mysqli_fetch_array($qCek)) {
           </a>
         </li>
         <li>
+          <a href="../../../../pengumuman"><i class="fa fa-info-circle"></i> <span>Kelola Informasi</span></a>
+        </li>
+        <li>
           <a href="../../../../penduduk/">
-            <i class="fa fa-users"></i><span>&nbsp;Data Penduduk</span>
+            <i class="fa fa-users"></i> <span>Data Penduduk</span>
           </a>
+        </li>
+        <li>
+          <a href="../../../../perangkat_desa/"><i class="fa fa-user-tie"></i> <span>Perangkat Desa</span></a>
+        </li>
+        <li>
+          <a href="../../../../profil_desa/"><i class="fa fa-cogs"></i> <span>Kelola Profil Desa</span></a>
         </li>
         <li class="active treeview">
           <a href="#">
@@ -30,13 +39,18 @@ while ($row = mysqli_fetch_array($qCek)) {
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
           </a>
           <ul class="treeview-menu">
-            <li>
-              <a href="../../../permintaan_surat/">
+            <li class="active">
+              <a href="#">
                 <i class="fa fa-circle-notch"></i> Permintaan Surat
               </a>
             </li>
             <li>
-              <a href="../../../surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai
+              <a href="../../../../surat/surat_selesai/">
+                <i class="fa fa-circle-notch"></i> Surat Selesai
+              </a>
+            </li>
+            <li class="">
+              <a href="../../../surat_ditolak/"><i class="fa fa-circle-notch"></i> Surat Ditolak
               </a>
             </li>
           </ul>
@@ -44,6 +58,12 @@ while ($row = mysqli_fetch_array($qCek)) {
         <li>
           <a href="../../../../laporan/">
             <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span>
+          </a>
+        </li>
+        <li class="header">Other</li>
+        <li>
+          <a href="../../../../../login/logout.php">
+            <i class="fas fa-sign-out-alt"></i> <span>&nbsp;&nbsp;Logout</span>
           </a>
         </li>
       </ul>

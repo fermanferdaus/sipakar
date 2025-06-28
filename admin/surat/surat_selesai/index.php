@@ -1,11 +1,11 @@
 <?php
-  include ('../part/akses.php');
-  include ('../part/header.php');
+include('../part/akses.php');
+include('../part/header.php');
 ?>
 
 <aside class="main-sidebar">
   <section class="sidebar">
-   
+
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       <li>
@@ -14,9 +14,18 @@
         </a>
       </li>
       <li>
+        <a href="../../pengumuman"><i class="fa fa-info-circle"></i> <span>Kelola Informasi</span></a>
+      </li>
+      <li>
         <a href="../../penduduk/">
           <i class="fa fa-users"></i> <span>Data Penduduk</span>
         </a>
+      </li>
+      <li>
+        <a href="../../perangkat_desa/"><i class="fa fa-user-tie"></i> <span>Perangkat Desa</span></a>
+      </li>
+      <li>
+        <a href="../../profil_desa/"><i class="fa fa-cogs"></i> <span>Kelola Profil Desa</span></a>
       </li>
       <li class="active treeview">
         <a href="#">
@@ -33,11 +42,21 @@
             <a href="#"><i class="fa fa-circle-notch"></i> Surat Selesai
             </a>
           </li>
+          <li class="">
+            <a href="../surat_ditolak/"><i class="fa fa-circle-notch"></i> Surat Ditolak
+            </a>
+          </li>
         </ul>
       </li>
       <li>
         <a href="../../laporan/">
           <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span>
+        </a>
+      </li>
+      <li class="header">Other</li>
+      <li>
+        <a href="../../../login/logout.php">
+          <i class="fas fa-sign-out-alt"></i> <span>&nbsp;&nbsp;Logout</span>
         </a>
       </li>
     </ul>
@@ -51,7 +70,7 @@
       <li class="active">Surat Selesai</li>
     </ol>
   </section>
-  <section class="content">      
+  <section class="content">
     <div class="row">
       <div class="col-md-12">
         <br><br>
@@ -69,10 +88,10 @@
           </thead>
           <tbody>
             <?php
-              include ('../../../config/koneksi.php');
+            include('../../../config/koneksi.php');
 
-              $no = 1;
-              $qTampil = mysqli_query($connect, "SELECT penduduk.nama, sk_ahli_waris.id_aw AS id, sk_ahli_waris.no_surat, sk_ahli_waris.nik, sk_ahli_waris.jenis_surat, sk_ahli_waris.status_surat, sk_ahli_waris.tanggal_surat FROM penduduk LEFT JOIN sk_ahli_waris ON sk_ahli_waris.nik = penduduk.nik WHERE sk_ahli_waris.status_surat = 'selesai' 
+            $no = 1;
+            $qTampil = mysqli_query($connect, "SELECT penduduk.nama, sk_ahli_waris.id_aw AS id, sk_ahli_waris.no_surat, sk_ahli_waris.nik, sk_ahli_waris.jenis_surat, sk_ahli_waris.status_surat, sk_ahli_waris.tanggal_surat FROM penduduk LEFT JOIN sk_ahli_waris ON sk_ahli_waris.nik = penduduk.nik WHERE sk_ahli_waris.status_surat = 'selesai' 
                 UNION SELECT penduduk.nama, surat_keterangan_domisili.id_skd, surat_keterangan_domisili.no_surat , surat_keterangan_domisili.nik , surat_keterangan_domisili.jenis_surat , surat_keterangan_domisili.status_surat , surat_keterangan_domisili.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai'
                 UNION SELECT penduduk.nama, sk_kehilangan.id_kh AS id, sk_kehilangan.no_surat, sk_kehilangan.nik, sk_kehilangan.jenis_surat, sk_kehilangan.status_surat, sk_kehilangan.tanggal_surat FROM sk_kehilangan LEFT JOIN penduduk ON sk_kehilangan.nik = penduduk.nik WHERE sk_kehilangan.status_surat = 'selesai'
                 UNION SELECT penduduk.nama, sk_gangguan_jiwa.id_gj AS id, sk_gangguan_jiwa.no_surat, sk_gangguan_jiwa.nik, sk_gangguan_jiwa.jenis_surat, sk_gangguan_jiwa.status_surat, sk_gangguan_jiwa.tanggal_surat FROM sk_gangguan_jiwa LEFT JOIN penduduk ON sk_gangguan_jiwa.nik = penduduk.nik WHERE sk_gangguan_jiwa.status_surat = 'selesai'
@@ -83,10 +102,10 @@
                 UNION SELECT penduduk.nama, sk_kematian.id_m AS id, sk_kematian.no_surat, sk_kematian.nik, sk_kematian.jenis_surat, sk_kematian.status_surat, sk_kematian.tanggal_surat FROM sk_kematian LEFT JOIN penduduk ON sk_kematian.nik = penduduk.nik WHERE sk_kematian.status_surat = 'selesai'
                 UNION SELECT penduduk.nama, sk_kuasa.id_kuasa AS id, '-' AS no_surat, sk_kuasa.nik, sk_kuasa.jenis_surat, sk_kuasa.status_surat, sk_kuasa.tanggal_surat FROM sk_kuasa LEFT JOIN penduduk ON sk_kuasa.nik = penduduk.nik WHERE sk_kuasa.status_surat = 'selesai'
                 UNION SELECT penduduk.nama, sk_jual_beli.id_jb AS id, '-' AS no_surat, sk_jual_beli.nik, sk_jual_beli.jenis_surat, sk_jual_beli.status_surat, sk_jual_beli.tanggal_surat FROM sk_jual_beli LEFT JOIN penduduk ON sk_jual_beli.nik = penduduk.nik WHERE sk_jual_beli.status_surat = 'selesai'");
-              foreach($qTampil as $row){
-            ?>
-            <tr>
-              <?php
+            foreach ($qTampil as $row) {
+              ?>
+              <tr>
+                <?php
                 $tgl_lhr = date($row['tanggal_surat']);
                 $tgl = date('d ', strtotime($tgl_lhr));
                 $bln = date('F', strtotime($tgl_lhr));
@@ -105,65 +124,123 @@
                   'November' => 'November',
                   'December' => 'Desember'
                 );
-              ?>
-              <td><?php echo $tgl . $blnIndo[$bln] . $thn; ?></td>
-              <td><?php echo $row['no_surat']; ?></td>
-              <td><?php echo $row['nik']; ?></td>
-              <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
-              <td><?php echo $row['jenis_surat']; ?></td>
-              <td><a class="btn btn-success btn-sm" href='#'><i class="fa fa-check"></i><b> <?php echo $row['status_surat']; ?></b></a></td>
-              <td>
-                <?php  
-                  if($row['jenis_surat']=="Surat Keterangan Domisili"){
                 ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_domisili/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Ahli Waris"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_ahli_waris/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Kehilangan"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_kehilangan/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Gangguan Jiwa"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_gangguan_jiwa/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Tidak Mampu"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_tidak_mampu/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Penghasilan Orang Tua"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_penghasilan_orang_tua/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Pengantar SKCK"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_pengantar_skck/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Usaha"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_usaha/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Kematian"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_kematian/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Kuasa"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_kuasa/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
-                  } else if($row['jenis_surat']=="Surat Keterangan Jual Beli"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/sk_jual_beli/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
+                <td><?php echo $tgl . $blnIndo[$bln] . $thn; ?></td>
+                <td><?php echo $row['no_surat']; ?></td>
+                <td><?php echo $row['nik']; ?></td>
+                <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
+                <td><?php echo $row['jenis_surat']; ?></td>
+                <td><a class="btn btn-success btn-sm" href='#'><i class="fa fa-check"></i><b>
+                      <?php echo $row['status_surat']; ?></b></a></td>
+                <td>
+                  <?php
+                  if ($row['jenis_surat'] == "Surat Keterangan Domisili") {
+                    ?>
+                    <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                      href='../cetak/sk_domisili/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b></b></a>
+                    <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                      class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                      <i class="fa fa-trash"></i> <b></b>
+                    </a>
+                    <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Ahli Waris") {
+                    ?>
+                      <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                        href='../cetak/sk_ahli_waris/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b></b></a>
+                      <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                        class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                        <i class="fa fa-trash"></i> <b></b>
+                      </a>
+                    <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Kehilangan") {
+                    ?>
+                        <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                          href='../cetak/sk_kehilangan/index.php?id=<?php echo $row['id']; ?>'><i class="fa fa-print"></i><b></b></a>
+                        <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                          class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                          <i class="fa fa-trash"></i> <b></b>
+                      <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Gangguan Jiwa") {
+                    ?>
+                            <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                              href='../cetak/sk_gangguan_jiwa/index.php?id=<?php echo $row['id']; ?>'><i
+                                class="fa fa-print"></i><b></b></a>
+                            <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                              class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                              <i class="fa fa-trash"></i> <b></b>
+                        <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Tidak Mampu") {
+                    ?>
+                                <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                                  href='../cetak/sk_tidak_mampu/index.php?id=<?php echo $row['id']; ?>'><i
+                                    class="fa fa-print"></i><b></b></a>
+                                <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                                  class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                  <i class="fa fa-trash"></i> <b></b>
+                          <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Penghasilan Orang Tua") {
+                    ?>
+                                    <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                                      href='../cetak/sk_penghasilan_orang_tua/index.php?id=<?php echo $row['id']; ?>'><i
+                                        class="fa fa-print"></i><b></b></a>
+                                    <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                                      class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                      <i class="fa fa-trash"></i> <b></b>
+                            <?php
+                  } else if ($row['jenis_surat'] == "Surat Pengantar SKCK") {
+                    ?>
+                                        <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                                          href='../cetak/sk_pengantar_skck/index.php?id=<?php echo $row['id']; ?>'><i
+                                            class="fa fa-print"></i><b></b></a>
+                                        <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                                          class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                          <i class="fa fa-trash"></i> <b></b>
+                              <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Usaha") {
+                    ?>
+                                            <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                                              href='../cetak/sk_usaha/index.php?id=<?php echo $row['id']; ?>'><i
+                                                class="fa fa-print"></i><b></b></a>
+                                            <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                                              class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                              <i class="fa fa-trash"></i> <b></b>
+                                <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Kematian") {
+                    ?>
+                                                <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                                                  href='../cetak/sk_kematian/index.php?id=<?php echo $row['id']; ?>'><i
+                                                    class="fa fa-print"></i><b></b></a>
+                                                <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                                                  class="btn btn-danger btn-sm"
+                                                  onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                                  <i class="fa fa-trash"></i> <b></b>
+                                  <?php
+                  } else if ($row['jenis_surat'] == "Surat Kuasa") {
+                    ?>
+                                                    <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                                                      href='../cetak/sk_kuasa/index.php?id=<?php echo $row['id']; ?>'><i
+                                                        class="fa fa-print"></i><b></b></a>
+                                                    <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                                                      class="btn btn-danger btn-sm"
+                                                      onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                                      <i class="fa fa-trash"></i> <b></b>
+                                    <?php
+                  } else if ($row['jenis_surat'] == "Surat Keterangan Jual Beli") {
+                    ?>
+                                                        <a name="cetak" target="output" class="btn btn-primary btn-sm"
+                                                          href='../cetak/sk_jual_beli/index.php?id=<?php echo $row['id']; ?>'><i
+                                                            class="fa fa-print"></i><b></b></a>
+                                                        <a href="hapus-surat.php?id=<?php echo $row['id']; ?>&jenis=<?php echo urlencode($row['jenis_surat']); ?>"
+                                                          class="btn btn-danger btn-sm"
+                                                          onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                                          <i class="fa fa-trash"></i> <b></b>
+                                      <?php
                   }
-                ?>
-              </td>
-            </tr>
-            <?php
-              }
+                  ?>
+                </td>
+              </tr>
+              <?php
+            }
             ?>
           </tbody>
         </table>
@@ -172,6 +249,6 @@
   </section>
 </div>
 
-<?php 
-  include ('../part/footer.php');
+<?php
+include('../part/footer.php');
 ?>
