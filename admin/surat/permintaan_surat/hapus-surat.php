@@ -50,7 +50,7 @@ switch ($jenis) {
 $hapus = mysqli_query($connect, $query);
 
 if ($hapus) {
-    echo "<script>alert('Data surat berhasil dihapus.'); window.location.href='../permintaan_surat/';</script>";
+    echo "<script>alert('Data surat berhasil dihapus.'); window.location.href='index.php';</script>";
 } else {
     echo "<script>alert('Gagal menghapus data.'); history.back();</script>";
 }

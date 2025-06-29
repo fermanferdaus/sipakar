@@ -31,7 +31,7 @@ if (array_key_exists($jenis, $mapping)) {
     $update = mysqli_query($connect, $query);
 
     if ($update) {
-        header("Location: permintaan_surat/?status=tolak-berhasil");
+        header("Location: index.php?status=tolak-berhasil");
     } else {
         echo "<script>alert('Gagal menolak surat'); history.back();</script>";
     }
