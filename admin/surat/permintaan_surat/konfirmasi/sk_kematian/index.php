@@ -364,7 +364,6 @@ while ($row = mysqli_fetch_array($qCek)) {
       <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
     </div>
   </div>
-</div>
                 </div>
               </form>
             </div>
