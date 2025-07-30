@@ -317,8 +317,10 @@ while ($row = mysqli_fetch_array($qCek)) {
                       </div>
                     </div>
                   </div>
-                  <div class="box-body pull-right">
-                    <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
+                  <div class="col-md-6">
+                    <div class="box-body pull-right">
+                      <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
+                    </div>
                   </div>
                 </div>
               </form>

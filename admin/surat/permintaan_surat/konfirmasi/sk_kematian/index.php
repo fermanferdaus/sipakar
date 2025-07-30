@@ -338,7 +338,6 @@ while ($row = mysqli_fetch_array($qCek)) {
                     </div>
                   <?php endfor; ?>
 
-                  <!-- Tombol -->
                   <div class="form-group row mt-4">
                     <div class="col-md-12 text-right">
                       <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
