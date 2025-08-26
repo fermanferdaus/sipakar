@@ -13,6 +13,14 @@ include('../part/header.php');
 				</a>
 			</li>
 			<li>
+				<a href="../data_penduduk/"><i class="fa fa-user"></i> <span>&nbsp;&nbsp;Data Penduduk</span></a>
+			</li>
+			<li>
+				<a href="../tambah_penduduk">
+					<i class="fas fa-user-plus"></i> <span>&nbsp;&nbsp;Tambah Data</span>
+				</a>
+			</li>
+			<li>
 				<a href="../profil/index.php?id=<?php echo $_SESSION['id']; ?>">
 					<i class="fas fa-user-edit"></i> <span>&nbsp;&nbsp;Edit Profil</span>
 				</a>
@@ -38,7 +46,7 @@ include('../part/header.php');
 </aside>
 <div class="content-wrapper">
 	<section class="content-header">
-		<h1>Pengajuan Surat</h1>
+		<h1>&nbsp;</h1>
 		<ol class="breadcrumb">
 			<li><a href="../../dashboard/"><i class="fa fa-tachometer-alt"></i> Home</a></li>
 			<li class="active">Pengajuan Surat</li>
@@ -81,16 +89,16 @@ include('../part/header.php');
 
 					foreach ($data_surat as $surat) {
 						echo '
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="box text-center" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.3s;">
-              <div class="mb-3">
-                <i class="fa fa-file-alt text-primary" style="font-size: 48px;"></i>
-              </div>
-              <h4 class="font-weight-bold" style="font-size: 18px;">' . $surat[0] . '</h4>
-              <hr>
-              <a href="' . $surat[1] . '" class="btn btn-sm btn-primary mt-2">Buat Surat <i class="fa fa-arrow-right ml-1"></i></a>
-            </div>
-          </div>';
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div class="box text-center" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.3s;">
+							<div class="mb-3">
+								<i class="fa fa-file-alt text-primary" style="font-size: 48px;"></i>
+							</div>
+							<h4 class="font-weight-bold" style="font-size: 18px;">' . $surat[0] . '</h4>
+							<hr>
+							<a href="' . $surat[1] . '" class="btn btn-sm btn-primary mt-2">Buat Surat <i class="fa fa-arrow-right ml-1"></i></a>
+							</div>
+						</div>';
 					}
 					?>
 				</div>

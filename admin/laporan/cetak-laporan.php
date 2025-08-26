@@ -421,6 +421,73 @@
     }
     ?>
   </table>
+  <!-- Tanda Tangan -->
+  <?php
+  // ambil data profil desa
+  $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+  $rows = mysqli_fetch_assoc($qTampilDesa);
+  ?>
+
+  <table width="100%" style="text-transform: capitalize; margin-top:50px;">
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+      <td width="10%"></td>
+      <td width="30%"></td>
+      <td width="10%"></td>
+      <td align="center">
+        <?php echo $rows['nama_desa']; ?>,
+        <?php
+        $tanggal = date('d F Y');
+        $bulan = date('F', strtotime($tanggal));
+        $bulanIndo = array(
+          'January' => 'Januari',
+          'February' => 'Februari',
+          'March' => 'Maret',
+          'April' => 'April',
+          'May' => 'Mei',
+          'June' => 'Juni',
+          'July' => 'Juli',
+          'August' => 'Agustus',
+          'September' => 'September',
+          'October' => 'Oktober',
+          'November' => 'November',
+          'December' => 'Desember'
+        );
+        echo date('d ') . $bulanIndo[$bulan] . date(' Y');
+        ?>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td align="center">Mengetahui,<br>
+        Kasi Pelayanan
+      </td>
+    </tr>
+
+    <!-- spasi tanda tangan -->
+    <tr>
+      <td colspan="4" style="padding-top:80px;"></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td align="center" style="text-transform: uppercase;">
+        <u><b>Ulfi Lailatul Fitri, Amd., P.</b></u>
+      </td>
+    </tr>
+  </table>
+
   <script>
     window.print();
   </script>

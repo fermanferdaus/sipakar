@@ -13,6 +13,14 @@ include('../part/header.php');
         </a>
       </li>
       <li>
+        <a href="../../data_penduduk/"><i class="fa fa-user"></i> <span>&nbsp;&nbsp;Data Penduduk</span></a>
+      </li>
+      <li>
+        <a href="../../tambah_penduduk">
+          <i class="fas fa-user-plus"></i> <span>&nbsp;&nbsp;Tambah Data</span>
+        </a>
+      </li>
+      <li>
         <a href="../../profil/index.php?id=<?php echo $_SESSION['id']; ?>">
           <i class="fas fa-user-edit"></i> <span>&nbsp;&nbsp;Edit Profil</span>
         </a>

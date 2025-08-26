@@ -47,7 +47,7 @@ include('../part/header.php');
             </li>
           </ul>
         </li>
-      <?php
+        <?php
       } else {
 
       }
@@ -66,6 +66,7 @@ include('../part/header.php');
     </ul>
   </section>
 </aside>
+
 <div class="content-wrapper">
   <section class="content-header">
     <h1>Data Penduduk</h1>
@@ -92,13 +93,19 @@ include('../part/header.php');
         <?php
         if (isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')) {
           ?>
-          <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data
-            Penduduk</a>
-          <a target="_blank" class="btn btn-info btn-md" href='export-penduduk.php'><i class="fas fa-file-export"></i>
-            Export .XLS</a>
-        <?php
-        } else {
+          <a class="btn btn-success btn-md" href='tambah-penduduk.php'>
+            <i class="fa fa-user-plus"></i> Tambah Data Penduduk
+          </a>
 
+          <a target="_blank" class="btn btn-info btn-md" href='export-penduduk.php'>
+            <i class="fas fa-file-export"></i> Export .XLS
+          </a>
+
+          <a target="_blank" class="btn btn-danger btn-md" href='cetak-pdf.php'>
+            <i class="fas fa-file-pdf"></i> Cetak PDF
+          </a>
+          <?php
+        } else {
         }
         ?>
         <br><br>
@@ -116,9 +123,8 @@ include('../part/header.php');
               if (isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')) {
                 ?>
                 <th><strong>Aksi</strong></th>
-              <?php
+                <?php
               } else {
-
               }
               ?>
             </tr>
@@ -156,11 +162,13 @@ include('../part/header.php');
                 );
                 ?>
                 <td style="text-transform: capitalize;">
-                  <?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?></td>
+                  <?php echo $row['tempat_lahir'] . ", " . $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun; ?>
+                </td>
                 <td style="text-transform: capitalize;"><?php echo $row['jenis_kelamin']; ?></td>
                 <td style="text-transform: capitalize;"><?php echo $row['agama']; ?></td>
                 <td style="text-transform: capitalize;">
-                  <?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?></td>
+                  <?php echo 'Dsn. ', $row['dusun'], ', RT', $row['rt'], '/RW', $row['rw']; ?>
+                </td>
                 <?php
                 if (isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')) {
                   ?>
@@ -171,7 +179,7 @@ include('../part/header.php');
                       onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
                         class="fa fa-trash"></i></a>
                   </td>
-                <?php
+                  <?php
                 } else {
 
                 }

@@ -22,8 +22,16 @@ while ($row = mysqli_fetch_array($qCek)) {
                         <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Home</span>
                     </a>
                 </li>
+                <li>
+                    <a href="../data_penduduk/"><i class="fa fa-user"></i> <span>&nbsp;&nbsp;Data Penduduk</span></a>
+                </li>
+                <li>
+                    <a href="../tambah_penduduk">
+                        <i class="fas fa-user-plus"></i> <span>&nbsp;&nbsp;Tambah Data</span>
+                    </a>
+                </li>
                 <li class="active">
-                    <a href="#">
+                    <a href="index.php">
                         <i class="fas fa-user-edit"></i> <span>&nbsp;&nbsp;Edit Profil</span>
                     </a>
                 </li>
@@ -48,7 +56,7 @@ while ($row = mysqli_fetch_array($qCek)) {
     </aside>
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>Edit Profil</h1>
+            <h1>&nbsp;</h1>
             <ol class="breadcrumb">
                 <li><a href="../dashboard/"><i class="fa fa-tachometer-alt"></i> Home</a></li>
                 <li class="active">Edit Profil</li>
