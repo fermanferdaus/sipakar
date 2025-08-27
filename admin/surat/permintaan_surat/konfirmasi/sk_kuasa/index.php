@@ -209,7 +209,7 @@ while ($row = mysqli_fetch_array($qCek)) {
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                        <label class="col-sm-3 control-label">Warganegara</label>
                         <div class="col-sm-9">
                           <input type="text" name="fkewarganegaraan" style="text-transform: uppercase;"
                             value="<?php echo $row['kewarganegaraan']; ?>" class="form-control" readonly>
@@ -248,7 +248,7 @@ while ($row = mysqli_fetch_array($qCek)) {
                   <div class="col-md-6">
                     <div class="box-body">
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                        <label class="col-sm-3 control-label">Warganegara</label>
                         <div class="col-sm-9">
                           <input type="text" name="fkewarganegaraan_k" style="text-transform: capitalize;"
                             value="<?php echo $row['kewarganegaraan_kuasa']; ?>" class="form-control" readonly>
@@ -272,23 +272,38 @@ while ($row = mysqli_fetch_array($qCek)) {
                     Keperluan</b></h5>
                 <br>
                 <hr style="border-bottom: 1px solid #DCDCDC;">
-                <div class="container">
-                  <div class="form-group row align-items-center w-100">
-                    <label class="col-md-2 col-form-label text-right font-weight-bold">Kondisi Pihak I</label>
-                    <div class="col-md-10">
-                      <input type="text" class="form-control" value="<?php echo $row['kondisi_pihak1']; ?>" readonly>
+                <div class="row">
+                  <!-- Kondisi Pihak I -->
+                  <div class="col-md-12">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Kondisi Pihak I</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="<?php echo $row['kondisi_pihak1']; ?>" readonly>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group row align-items-center w-100">
-                    <label class="col-md-2 col-form-label text-right font-weight-bold">Keterangan Kuasa Pihak II</label>
-                    <div class="col-md-10">
-                      <input type="text" class="form-control" value="<?php echo $row['keterangan_kuasa']; ?>" readonly>
+
+                  <!-- Keterangan Kuasa Pihak II -->
+                  <div class="col-md-12">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Keterangan Kuasa Pihak II</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="<?php echo $row['keterangan_kuasa']; ?>"
+                            readonly>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group text-right w-100">
+
+                  <!-- Tombol -->
+                  <div class="col-md-12 text-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
                   </div>
                 </div>
+
               </form>
             </div>
             <div class="box-footer">

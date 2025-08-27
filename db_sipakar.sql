@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2025 at 10:58 AM
+-- Generation Time: Aug 27, 2025 at 04:44 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -88,8 +88,7 @@ INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `
 (1, 'ADI SOPYAN', 'Kepala Desa', '1751096088_Daco_1062754.png'),
 (2, 'MASYHUR KUMAR', 'Pj Kepala Desa', NULL),
 (3, 'CHIKO DASMIRA', 'Bendahara', NULL),
-(4, 'DONNY ALENDRA', 'OPERATOR SISK-NG', NULL),
-(5, 'RINI SAFITRI', 'OPERATOR SISKUEDES', NULL);
+(4, 'DONNY ALENDRA', 'OPERATOR SISK-NG', NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +128,7 @@ CREATE TABLE `penduduk` (
 --
 
 INSERT INTO `penduduk` (`id_penduduk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `jalan`, `dusun`, `rt`, `rw`, `desa`, `kecamatan`, `kota`, `no_kk`, `pend_kk`, `pend_terakhir`, `pend_ditempuh`, `pekerjaan`, `status_perkawinan`, `status_dlm_keluarga`, `kewarganegaraan`, `nama_ayah`, `nama_ibu`) VALUES
-(1, '12345', 'FERMAN OKU', 'OKU', '2003-11-12', 'Laki-laki', 'Islam', 'semar', 'Kampung Baru', '001', '001', 'Pager', 'Bambangan Pager', 'Kabupaten Lampung Utara', '123456', 'S1/SEDERAJAT', 'S1/SEDERAJAT', 'S1/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'e', 'e');
+(1, '12345', 'ferman ferdaus', 'OKU Timur', '2003-11-12', 'Laki-laki', 'Islam', 'semar', 'Kampung Baru', '001', '001', 'Pager', 'Bambangan Pager', 'Kabupaten Lampung Utara', '123456', 'S1/SEDERAJAT', 'S1/SEDERAJAT', 'S1/SEDERAJAT', 'PELAJAR/MAHASISWA', 'Belum Menikah', 'Anak', 'WNI', 'e', 'e');
 
 -- --------------------------------------------------------
 
@@ -284,14 +283,6 @@ CREATE TABLE `sk_jual_beli` (
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `sk_jual_beli`
---
-
-INSERT INTO `sk_jual_beli` (`id_jb`, `jenis_surat`, `nik`, `nama_penjual`, `umur_penjual`, `pekerjaan_penjual`, `alamat_penjual`, `hari_transaksi`, `tanggal_transaksi`, `kategori_tanah`, `luas_tanah`, `ukuran_tanah`, `lokasi_tanah`, `harga_tanah`, `batas_utara`, `batas_selatan`, `batas_timur`, `batas_barat`, `jumlah_saksi`, `nama_saksi1`, `alamat_saksi1`, `nama_saksi2`, `alamat_saksi2`, `nama_saksi3`, `alamat_saksi3`, `nama_saksi4`, `alamat_saksi4`, `nama_saksi5`, `alamat_saksi5`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(5, 'Surat Keterangan Jual Beli', '12345', 'Paijo', 65, 'Petani', 'RT/RW. 01 / 04  Desa Pagar  Kec. Blambangan Pagar  Kab. Lampung Utara', 'Kamis', '2025-06-26', 'Pekarangan', 1050, '15 m x 70 m', 'RT/RW. 01 / 04  Desa Pagar  Kec. Blambangan Pagar  Kab. Lampung Utara', 'Rp 30.000.000', 'Jalan Dusun', 'Tanah Ekwandi', 'Tanah Maryono', 'Tanah Sugeng', 4, 'WAGIMIN', 'Kadus 04', 'SUTAMI ', 'RT 01', 'SUGENG    ', '', 'MARYONO', '', '', '', '2025-06-26 01:48:14', 1, 'SELESAI', 1),
-(6, 'Surat Keterangan Jual Beli', '12345', 'rere', 50, 'petani', 'sddsdssd', 'qwqw', '2025-06-28', 'dsdsds', 1050, '15 m x 70 m', 'rt01', 'Rp 35.000.000', 'sasa', 'asas', 'dsd', 'asas', 2, 'wew', '', 'ewew', '', '', '', '', '', '', '', '2025-06-28 04:20:37', NULL, 'PENDING', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -356,14 +347,6 @@ CREATE TABLE `sk_kematian` (
   `id_profil_desa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `sk_kematian`
---
-
-INSERT INTO `sk_kematian` (`id_m`, `jenis_surat`, `no_surat`, `nik`, `hari_m`, `tgl_m`, `tempat_m`, `penyebab_m`, `ortu_m`, `pasangan_m`, `jumlah_anak`, `nama_anak_1`, `nama_anak_2`, `nama_anak_3`, `nama_anak_4`, `nama_anak_5`, `nama_anak_6`, `nama_anak_7`, `nama_anak_8`, `nama_anak_9`, `nama_anak_10`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(2, 'Surat Keterangan Kematian', '472.12/ PGR /094/VII/ 2018', '12345', 'Selasa', '2025-06-24', 'Kuburan', 'Sakit', 'Sutrisno', 'Ica', 2, 'Paijo', 'Paijan', '', '', '', '', '', '', '', '', '2025-06-24 20:49:40', 2, 'SELESAI', 1),
-(3, 'Surat Keterangan Kematian', NULL, '12345', 'Jumat', '2025-06-28', 'dimanamana', 'sakit hati', 'wagino', 'muji', 2, 'hadi', 'yusuf', '', '', '', '', '', '', '', '', '2025-06-28 05:04:11', NULL, 'PENDING', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -392,7 +375,7 @@ CREATE TABLE `sk_kuasa` (
 
 INSERT INTO `sk_kuasa` (`id_kuasa`, `jenis_surat`, `nik`, `nama_kuasa`, `jenis_kelamin_kuasa`, `kewarganegaraan_kuasa`, `alamat_kuasa`, `kondisi_pihak1`, `keterangan_kuasa`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (1, 'Surat Kuasa', '12345', 'Medy', 'Laki-laki', 'WNI', 'Kotabumi, Lampung Utara', 'sakit', 'mengurus obat', '2025-06-25 22:04:32', 1, 'SELESAI', 1),
-(2, 'Surat Kuasa', '12345', 'assa', 'Laki-laki', 'WNI', 'saasadefdscx', 'weewds', 'dsdsd', '2025-06-28 05:08:58', NULL, 'PENDING', 1);
+(3, 'Surat Kuasa', '12345', 'assa', 'Laki-laki', 'WNI', 'saasadefdscx', 'weewds', 'dsdsd', '2025-08-27 21:30:34', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -417,8 +400,7 @@ CREATE TABLE `sk_pengantar_skck` (
 --
 
 INSERT INTO `sk_pengantar_skck` (`id_sps`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Pengantar SKCK', '471.11/PGR/00/IV/202', '12345', 'Melamar Pekerjaan', '2025-06-24 11:23:48', 1, 'SELESAI', 1),
-(2, 'Surat Pengantar SKCK', NULL, '12345', 'Melamar Pekerjaan ', '2025-06-28 05:17:25', NULL, 'PENDING', 1);
+(2, 'Surat Pengantar SKCK', NULL, '12345', 'Melamar Pekerjaan ', '2025-06-28 05:17:25', NULL, 'DITOLAK', 1);
 
 -- --------------------------------------------------------
 
@@ -526,6 +508,22 @@ INSERT INTO `sk_usaha` (`id_u`, `jenis_surat`, `no_surat`, `nik`, `jumlah_usaha`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `surat_keterangan`
+--
+-- Error reading structure for table db_sipakar.surat_keterangan: #1932 - Table 'db_sipakar.surat_keterangan' doesn't exist in engine
+-- Error reading data for table db_sipakar.surat_keterangan: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_sipakar`.`surat_keterangan`' at line 1
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_berkelakuan_baik`
+--
+-- Error reading structure for table db_sipakar.surat_keterangan_berkelakuan_baik: #1932 - Table 'db_sipakar.surat_keterangan_berkelakuan_baik' doesn't exist in engine
+-- Error reading data for table db_sipakar.surat_keterangan_berkelakuan_baik: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_sipakar`.`surat_keterangan_berkelakuan_baik`' at line 1
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `surat_keterangan_domisili`
 --
 
@@ -545,9 +543,47 @@ CREATE TABLE `surat_keterangan_domisili` (
 --
 
 INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `nik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(1, 'Surat Keterangan Domisili', '593 / PGR / 010 / I', '12345', '2025-06-21 01:11:12', 1, 'SELESAI', 1),
-(2, 'Surat Keterangan Domisili', NULL, '12345', '2025-06-27 21:28:00', NULL, 'ditolak', 1),
 (5, 'Surat Keterangan Domisili', NULL, '12345', '2025-06-28 03:57:00', NULL, 'PENDING', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
+--
+-- Error reading structure for table db_sipakar.surat_keterangan_kepemilikan_kendaraan_bermotor: #1932 - Table 'db_sipakar.surat_keterangan_kepemilikan_kendaraan_bermotor' doesn't exist in engine
+-- Error reading data for table db_sipakar.surat_keterangan_kepemilikan_kendaraan_bermotor: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_sipakar`.`surat_keterangan_kepemilikan_kendaraan_bermotor`' at line 1
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_perhiasan`
+--
+-- Error reading structure for table db_sipakar.surat_keterangan_perhiasan: #1932 - Table 'db_sipakar.surat_keterangan_perhiasan' doesn't exist in engine
+-- Error reading data for table db_sipakar.surat_keterangan_perhiasan: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_sipakar`.`surat_keterangan_perhiasan`' at line 1
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_usaha`
+--
+-- Error reading structure for table db_sipakar.surat_keterangan_usaha: #1932 - Table 'db_sipakar.surat_keterangan_usaha' doesn't exist in engine
+-- Error reading data for table db_sipakar.surat_keterangan_usaha: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_sipakar`.`surat_keterangan_usaha`' at line 1
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_lapor_hajatan`
+--
+-- Error reading structure for table db_sipakar.surat_lapor_hajatan: #1932 - Table 'db_sipakar.surat_lapor_hajatan' doesn't exist in engine
+-- Error reading data for table db_sipakar.surat_lapor_hajatan: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_sipakar`.`surat_lapor_hajatan`' at line 1
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_pengantar_skck`
+--
+-- Error reading structure for table db_sipakar.surat_pengantar_skck: #1932 - Table 'db_sipakar.surat_pengantar_skck' doesn't exist in engine
+-- Error reading data for table db_sipakar.surat_pengantar_skck: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `db_sipakar`.`surat_pengantar_skck`' at line 1
 
 --
 -- Indexes for dumped tables
@@ -704,7 +740,7 @@ ALTER TABLE `pejabat_desa`
 -- AUTO_INCREMENT for table `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengumuman`
@@ -752,7 +788,7 @@ ALTER TABLE `sk_kematian`
 -- AUTO_INCREMENT for table `sk_kuasa`
 --
 ALTER TABLE `sk_kuasa`
-  MODIFY `id_kuasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kuasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sk_pengantar_skck`

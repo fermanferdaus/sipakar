@@ -216,7 +216,7 @@ while ($row = mysqli_fetch_array($qCek)) {
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                        <label class="col-sm-3 control-label">Warganegara</label>
                         <div class="col-sm-9">
                           <input type="text" name="fkewarganegaraan" style="text-transform: uppercase;"
                             value="<?php echo $row['kewarganegaraan']; ?>" class="form-control" readonly>

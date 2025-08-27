@@ -219,7 +219,7 @@ while ($row = mysqli_fetch_array($qCek)) {
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                        <label class="col-sm-3 control-label">Warganegara</label>
                         <div class="col-sm-9">
                           <input type="text" name="fkewarganegaraan" style="text-transform: uppercase;"
                             value="<?php echo $row['kewarganegaraan']; ?>" class="form-control" readonly>
@@ -302,46 +302,63 @@ while ($row = mysqli_fetch_array($qCek)) {
                     Ahli waris</b></h5>
                 <br>
                 <hr style="border-bottom: 1px solid #DCDCDC;">
-                <div class="container">
-                  <!-- Baris Orang Tua dan Pasangan -->
-                  <div class="form-group row align-items-center">
-                    <label class="col-md-2 col-form-label text-right font-weight-bold">Nama Bapak/Ibu</label>
-                    <div class="col-md-4">
-                      <input type="text" name="fortu_m" class="form-control" style="text-transform: uppercase;"
-                        value="<?php echo $row['ortu_m']; ?>" readonly>
-                    </div>
-
-                    <label class="col-md-2 col-form-label text-right font-weight-bold">Nama Suami/Isteri</label>
-                    <div class="col-md-4">
-                      <input type="text" name="fj_kelamin" class="form-control" value="<?php echo $row['pasangan_m']; ?>"
-                        readonly>
+                <div class="row">
+                  <!-- Nama Orang Tua -->
+                  <div class="col-md-6">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Nama Bapak/Ibu</label>
+                        <div class="col-sm-8">
+                          <input type="text" name="fortu_m" class="form-control" style="text-transform: uppercase;"
+                            value="<?php echo $row['ortu_m']; ?>" readonly>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
+                  <!-- Nama Pasangan -->
+                  <div class="col-md-6">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Nama Suami/Isteri</label>
+                        <div class="col-sm-8">
+                          <input type="text" name="fpasangan_m" class="form-control" style="text-transform: uppercase;"
+                            value="<?php echo $row['pasangan_m']; ?>" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <!-- Jumlah Anak -->
-                  <div class="form-group row align-items-center">
-                    <label class="col-md-2 col-form-label text-right font-weight-bold">Jumlah Anak</label>
-                    <div class="col-md-10">
-                      <input type="text" class="form-control" value="<?php echo $row['jumlah_anak']; ?>" readonly>
+                  <div class="col-md-6">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Jumlah Anak</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" value="<?php echo $row['jumlah_anak']; ?>" readonly>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
+                </div>
+                <div class="row">
                   <!-- Daftar Anak -->
                   <?php for ($i = 1; $i <= intval($row['jumlah_anak']); $i++): ?>
                     <?php $anak = isset($row["nama_anak_$i"]) ? $row["nama_anak_$i"] : ''; ?>
-                    <div class="form-group row align-items-center">
-                      <label class="col-md-2 col-form-label text-right">Nama Anak <?php echo $i; ?></label>
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" style="text-transform: capitalize;"
-                          value="<?php echo htmlspecialchars($anak); ?>" readonly>
+                    <div class="col-md-6">
+                      <div class="box-body">
+                        <div class="form-group">
+                          <label class="col-sm-4 control-label">Nama Anak <?php echo $i; ?></label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" style="text-transform: capitalize;"
+                              value="<?php echo htmlspecialchars($anak); ?>" readonly>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   <?php endfor; ?>
-
-                  <div class="form-group row mt-4">
-                    <div class="col-md-12 text-right">
-                      <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
-                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 text-right">
+                    <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
                   </div>
                 </div>
               </form>
